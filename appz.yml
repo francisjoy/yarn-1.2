@@ -1,0 +1,24 @@
+app:
+    name: Yarn
+    code: YARN
+    notify: fjoy@ecloudcontrol.com
+    
+build:
+    version: 1.22
+    env: DEV
+    build_file: none
+    args:
+      BUILD_DIR: /app
+      CONTENTS_PATH: /app
+    output_files: output/*.zip
+    image_template: yarn-1.22
+    
+deploy:
+    context: francisjoy/DEV
+    replicas: 1   
+    port:
+    - 3000
+    
+properties:
+   WORK_DIR: /app
+   revision: 1
